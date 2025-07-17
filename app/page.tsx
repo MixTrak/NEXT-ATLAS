@@ -25,16 +25,16 @@ export const Home = () => {
         </div>
         <div className="mockup-code w-full max-w-3xl mx-auto border-4 border-gray-300 rounded-lg shadow-lg overflow-hidden">
           <pre data-prefix=">" className="bg-gray-800 text-green-400 p-2 border-b border-gray-700">
-            <code className='inline'>cd brain <span className='text-gray-500'>// Change Directory</span></code>
+              <code className='inline'>cd brain {/* Change Directory */}</code>
           </pre>
           <pre data-prefix="$" className="bg-gray-800 text-green-400 p-2 border-b border-gray-700">
-            <code className='inline'>npm i atlas <span className='text-gray-500'>// Install atlas</span></code>
+              <code className='inline'>npm i atlas {/* Install atlas */}</code>
           </pre>
           <pre data-prefix=">" className="text-warning bg-gray-800  p-2 border-b border-gray-700">
-            <code className='inline'>installing... <span className='text-gray-500'>// Installing</span></code>
+              <code className='inline'>installing... {/* Installing */}</code>
           </pre>
           <pre data-prefix=">" className="text-success bg-gray-800 p-2">
-            <code className='inline'>Done! <span className='text-gray-500'>// Done!</span></code>
+              <code className='inline'>Done! {/* Done! */}</code>
           </pre>
         </div>
 
