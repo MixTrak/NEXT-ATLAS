@@ -2,7 +2,8 @@ import React from 'react';
 import NavBar from '@/components/navbar';
 import './page.css';
 
-export const Home = () => {
+// Change from 'export const Home = () => {' to 'const Home = () => {' and then export default
+const Home = () => {
   return (
     <div className=''>
       <NavBar />
@@ -54,4 +55,4 @@ export const Home = () => {
   );
 };
 
-export default Home;
+export default Home; // This line is correct and should remain
