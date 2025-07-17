@@ -5,10 +5,8 @@ import './page.css';
 export const Home = () => {
   return (
     <div className=''>
-      {/* NavBar */}
       <NavBar />
       
-      {/* Hero Section */}
       <div className="hero bg-white min-h-screen flex items-center justify-center py-12">
         <div className="hero-content flex-col lg:flex-row max-w-4xl mx-auto px-4"> 
           <div>
@@ -21,7 +19,6 @@ export const Home = () => {
         </div>
       </div>
 
-      {/* Mock Terminal Section */}
       <div id='/' className='bg-white text-black p-8 pb-16'>
         <div className='flex justify-center items-center mb-8'>
           <h1 className='text-black text-3xl font-bold text-center'>PROGRAMMING IN THE NEAR FUTURE</h1>

@@ -32,7 +32,7 @@ export default function Login() {
 
   const handleGoogleLogin = () => {
     signInWithPopup(auth, provider)
-      .then((result) => {
+      .then(() => { // Corrected: removed 'result' parameter as it's not used
         localStorage.setItem('loginMethod', 'google');
         setMessage('Logged in with Google.');
         setMessageType('success');
@@ -137,7 +137,7 @@ export default function Login() {
         <br />
         <br />
         <p className='text-black'>
-          Don't have an account?{' '}
+          Don&apos;t have an account?{' '} {/* Corrected: Escaped apostrophe */}
           <span onClick={signup} className='link cursor-pointer hover:text-blue-200 text-black'>
             Signup
           </span>

@@ -1,14 +1,7 @@
-// API - GET, POST, PUT, DELETE
-// GET - DATA Fetching
-// POST - Create new data
-// PUT - Update existing data
-// DELETE - Remove data
 import { NextResponse } from 'next/server';
 import { connectDB } from '@/lib/connectDB';
 import User from '@/models/User';
 import { deadManCheck } from '@/utils/deadManCheck';
-
-// ... (rest of your imports)
 
 export async function POST(req: Request) {
   try {
@@ -41,8 +34,14 @@ export async function POST(req: Request) {
     // Use trimmedPassword when creating the user
     const newUser = await User.create({ name, email: lowerEmail, password: trimmedPassword });
     return NextResponse.json({ message: 'User created', user: newUser }, { status: 201 });
-  } catch (err: any) {
-    console.error('Signup error:', err.message || err);
-    return NextResponse.json({ error: err.message || 'Server error during signup' }, { status: 500 });
+  } catch (err: unknown) { // Changed 'any' to 'unknown'
+    let errorMessage = 'Server error during signup';
+    if (err instanceof Error) {
+      errorMessage = err.message;
+    } else if (typeof err === 'string') {
+      errorMessage = err;
+    }
+    console.error('Signup error:', errorMessage);
+    return NextResponse.json({ error: errorMessage }, { status: 500 });
   }
 }

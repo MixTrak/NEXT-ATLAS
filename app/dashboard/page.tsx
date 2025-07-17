@@ -3,6 +3,7 @@ import { useEffect, useState } from 'react';
 import { getAuth, signOut } from 'firebase/auth';
 import app from '@/firebase';
 import { useRouter } from 'next/navigation';
+import Image from 'next/image';
 import { FaEye, FaEyeSlash } from 'react-icons/fa'; // Import the icons
 import notFound from '@/public/notFound.png';
 
@@ -128,7 +129,7 @@ export default function Dashboard() {
         return (
           <div className='bg-[rgba(248,247,244,255)] h-screen'>
             <div className='flex justify-center items-center'>
-              <img className='mt-10' src={notFound.src} alt='404 UnAuthorized' />
+              <Image className='mt-10' src={notFound.src} alt='404 UnAuthorized' />
             </div>
             <div className='flex justify-center items-center'>
               <div className='text-center text-black'>
@@ -146,7 +147,7 @@ export default function Dashboard() {
         return (
           <div className='bg-[rgba(248,247,244,255)] h-screen'>
             <div className='flex justify-center items-center'>
-              <img className='mt-10' src={notFound.src} alt="404 UnAuthorized"/>
+              <Image className='mt-10' src={notFound.src} alt="404 UnAuthorized"/>
             </div>
             <div className="flex justify-center items-center">
               <div className="text-center text-black">
@@ -165,7 +166,7 @@ export default function Dashboard() {
       return (
         <div className='bg-[rgba(248,247,244,255)] h-screen'>
           <div className='flex justify-center items-center'>
-            <img className='mt-10' src={notFound.src} alt="404 UnAuthorized"/>
+            <Image className='mt-10' src={notFound.src} alt="404 UnAuthorized"/>
           </div>
           <div className="flex justify-center items-center">
             <div className="text-center text-black">
@@ -187,7 +188,7 @@ export default function Dashboard() {
         {loginMethod === 'google' ? (
           <div className="relative cursor-pointer">
             {user.photoURL ? (
-              <img
+              <Image
                 src={user.photoURL}
                 alt="Profile"
                 className="w-10 h-10 rounded-full relative z-10 border-2 border-black object-cover animate-pulse-custom min-w-[40px] min-h-[40px] max-w-[40px] max-h-[40px] p-0 m-0 block overflow-hidden"
