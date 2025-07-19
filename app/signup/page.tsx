@@ -53,6 +53,12 @@ export default function Signup() {
       return;
     }
 
+    if (!/^[\w.-]+@([\w-]+\.)+(com|net|org|edu)$/.test(email)) {
+      setMessage('Enter a valid email address');
+      setMessageType('error');
+      return;
+    }
+
     const res = await fetch('/api/signup', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
