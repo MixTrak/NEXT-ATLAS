@@ -14,27 +14,37 @@ export async function deadManCheck() {
       return { ok: false, message: 'System Unavailable Due To A Unfortunate Attack(Dead Man Protocol Engaged)' };
     }
 
-    // Trim and lowercase email to match signup/login logic
-    const trimmedEmail = SENTINEL_EMAIL.toLowerCase().trim();
-    const trimmedPassword = SENTINEL_PASSWORD.trim();
+    // Use exact email from env (no trimming/lowercasing to match what's actually in DB)
+    const sentinelEmail = SENTINEL_EMAIL;
+    const sentinelPassword = SENTINEL_PASSWORD;
 
-    console.log('Dead Man Check: Looking for sentinel user with email:', trimmedEmail);
+    console.log('Dead Man Check: Looking for sentinel user with email:', sentinelEmail);
     
-    const sentinel = await User.findOne({ email: trimmedEmail });
+    const sentinel = await User.findOne({ email: sentinelEmail });
     if (!sentinel) {
       console.log('Dead Man Check: Sentinel user not found');
-      return { ok: false, message: 'System Unavailable Due To A Unfortunate Attack(Dead Man Protocol Engaged)' };
+      // Auto-create sentinel user if not found
+      try {
+        const newSentinel = await User.create({
+          name: 'System Sentinel',
+          email: sentinelEmail,
+          password: sentinelPassword
+        });
+        console.log('Dead Man Check: Sentinel user created successfully');
+        return { ok: true };
+      } catch (createError) {
+        console.error('Dead Man Check: Failed to create sentinel user:', createError);
+        return { ok: false, message: 'System Unavailable Due To A Unfortunate Attack(Dead Man Protocol Engaged)' };
+      }
     }
 
     console.log('Dead Man Check: Sentinel user found');
-    console.log('Dead Man Check: Stored password length:', sentinel.password?.length);
-    console.log('Dead Man Check: Expected password length:', trimmedPassword.length);
 
-    // Compare trimmed passwords
-    if (sentinel.password !== trimmedPassword) {
+    // Direct password comparison without trimming
+    if (sentinel.password !== sentinelPassword) {
       console.log('Dead Man Check: Password mismatch');
       console.log('Dead Man Check: Stored password:', `"${sentinel.password}"`);
-      console.log('Dead Man Check: Expected password:', `"${trimmedPassword}"`);
+      console.log('Dead Man Check: Expected password:', `"${sentinelPassword}"`);
       return { ok: false, message: 'System Unavailable Due To A Unfortunate Attack(Dead Man Protocol Engaged)' };
     }
 
