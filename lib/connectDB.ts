@@ -9,8 +9,10 @@ if (!MONGO_URI) {
 export const connectDB = async () => {
   try {
     if (mongoose.connection.readyState === 0) {
-      // Database name is already specified in the connection string (/Data)
-      await mongoose.connect(MONGO_URI);
+      // Explicitly specify the database name from your connection string
+      await mongoose.connect(MONGO_URI, {
+        dbName: 'Data' // This forces mongoose to use the 'Data' database
+      });
       console.log('Connected to MongoDB - Database: Data');
     }
   } catch (error) {
