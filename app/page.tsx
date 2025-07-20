@@ -21,24 +21,6 @@ const Home = () => {
       </div>
 
       <div id='/' className='bg-white text-black p-8 pb-16'>
-        <div className='flex justify-center items-center mb-8'>
-          <h1 className='text-black text-3xl font-bold text-center'>PROGRAMMING IN THE NEAR FUTURE</h1>
-        </div>
-        <div className="mockup-code w-full max-w-3xl mx-auto border-4 border-gray-300 rounded-lg shadow-lg overflow-hidden">
-          <pre data-prefix=">" className="bg-gray-800 text-green-400 p-2 border-b border-gray-700">
-              <code className='inline'>cd brain {/* Change Directory */}</code>
-          </pre>
-          <pre data-prefix="$" className="bg-gray-800 text-green-400 p-2 border-b border-gray-700">
-              <code className='inline'>npm i atlas {/* Install atlas */}</code>
-          </pre>
-          <pre data-prefix=">" className="text-warning bg-gray-800  p-2 border-b border-gray-700">
-              <code className='inline'>installing... {/* Installing */}</code>
-          </pre>
-          <pre data-prefix=">" className="text-success bg-gray-800 p-2">
-              <code className='inline'>Done! {/* Done! */}</code>
-          </pre>
-        </div>
-
         <div className='flex flex-col justify-center items-center mt-12'>
           <p className='text-gray-500 text-xl mb-6 font-black'>WEB TECHNOLOGIES USED FOR THIS APPLICATION</p> 
           <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6'> 
@@ -55,4 +37,4 @@ const Home = () => {
   );
 };
 
-export default Home; // This line is correct and should remain
+export default Home;
