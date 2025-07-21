@@ -13,7 +13,7 @@ const Home = () => {
           <div>
             <h1 className="text-5xl font-bold text-black text-center lg:text-left">What Is NEXT-ATLAS?</h1>
             <p className="py-6 text-black text-lg text-center lg:text-left">
-              <span className='font-extrabold'>NEXT-ATLAS</span> is a modern, full-stack website that combines the power of <span className='font-extrabold'>NEXT-JS</span> and The <span className='font-extrabold'>Modern MERN STACK</span> to create scalable, efficient, and user-friendly web applications. It leverages <span className='font-extrabold'>HYPE TRAIN</span> technologies like <span className='font-extrabold'>TypeScript</span> and <span className='font-extrabold'>Tailwind</span> to provide a seamless development experience.
+              <span className='font-extrabold'>NEXT-ATLAS</span> is a modern, full-stack website that combines the power of <span className='font-extrabold'>NEXT-JS</span> and The <span className='font-extrabold'>Modern MERN STACK</span> to create scalable, efficient, and user-friendly web application. It leverages <span className='font-extrabold'>HYPE TRAIN</span> technologies like <span className='font-extrabold'>TypeScript</span> and <span className='font-extrabold'>Tailwind</span> to provide a seamless development experience.
             </p>
             <a className="btn btn-block mt-4 lg:w-auto" href='#/'>Scroll</a>
           </div>
