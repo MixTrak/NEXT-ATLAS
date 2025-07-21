@@ -3,13 +3,6 @@ import NavBar from '@/components/navbar';
 import './page.css';
 
 const Home = () => {
-  const handleScroll = () => {
-    const target = document.getElementById('tech');
-    if (target) {
-      target.scrollIntoView({ behavior: 'smooth' });
-    }
-  };
-
   return (
     <div className=''>
       <NavBar />
@@ -21,7 +14,12 @@ const Home = () => {
             <p className="py-6 text-black text-lg text-center lg:text-left">
               <span className='font-extrabold'>NEXT-ATLAS</span> is a modern, full-stack website that combines the power of <span className='font-extrabold'>NEXT-JS</span> and The <span className='font-extrabold'>Modern MERN STACK</span> to create scalable, efficient, and user-friendly web application. It leverages <span className='font-extrabold'>HYPE TRAIN</span> technologies like <span className='font-extrabold'>TypeScript</span> and <span className='font-extrabold'>Tailwind</span> to provide a seamless development experience.
             </p>
-            <button className="btn btn-block mt-4 lg:w-auto" onClick={handleScroll}>
+            <button
+              className="btn btn-block mt-4 lg:w-auto"
+              onClick={() => {
+                document.getElementById('tech')?.scrollIntoView({ behavior: 'smooth' });
+              }}
+            >
               Scroll
             </button>
           </div>
